@@ -68,4 +68,32 @@ public class ChangeController {
         });
 
     }
+
+    @GetMapping("/devise-change/date/{dateCotation}")
+    public List<TauxChange> retrouveTauxChangeparDate
+            (@PathVariable Date dateCotation) {
+
+        List<TauxChange> tauxChange =
+                repository.findByDateCotation(dateCotation);
+
+    /*tauxChange.setPort(
+        Integer.parseInt(environment.getProperty("local.server.port")));*/
+
+        return tauxChange;
+    }
+
+    @GetMapping("/devise-change/source/{source}/dest/{dest}")
+    public List<TauxChange> retrouveTauxChangeParPair
+            (@PathVariable String source, @PathVariable String dest) {
+
+        List<TauxChange> tauxChange =
+                repository.findBySourceAndDest(source, dest);
+
+    /*tauxChange.setPort(
+        Integer.parseInt(environment.getProperty("local.server.port")));*/
+
+        return tauxChange;
+    }
+
+
 }
