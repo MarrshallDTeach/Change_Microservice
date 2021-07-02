@@ -55,4 +55,6 @@ public class TauxChange {
     public BigDecimal getTaux() {
         return taux;
     }
+
+    public void setTaux(BigDecimal taux) {this.taux = taux;}
 }
